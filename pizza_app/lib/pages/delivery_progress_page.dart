@@ -1,9 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:pizza_app/components/CarouselPage.dart';
+import 'package:pizza_app/components/my_cart_title.dart';
 import 'package:pizza_app/components/my_reciepts.dart';
+import 'package:pizza_app/services/database/firestore.dart';
+import 'package:firebase_ui_firestore/firebase_ui_firestore.dart';
+import 'package:provider/provider.dart';
 
-class DeliveryProgressPage extends StatelessWidget {
+class DeliveryProgressPage extends StatefulWidget {
   const DeliveryProgressPage({super.key});
+
+  @override
+  State<DeliveryProgressPage> createState() => _DeliveryProgressPageState();
+}
+
+class _DeliveryProgressPageState extends State<DeliveryProgressPage> {
+
+// get acces to db
+FirestoreService db = FirestoreService();
+
+// @override
+//   void initState(){
+//     super.initState();
+
+//   String receipt = context.read< Restaurant>().displayCartReciept();
+//   db.saveOrderToDatabase(receipt);  
+  
+//   }
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +45,7 @@ class DeliveryProgressPage extends StatelessWidget {
       ),
     );
   }
+
   // custom Bottom Nav Bar:/ call delivery driver
  Widget  _buildBottomNavBar(BuildContext context){
     return Container(
